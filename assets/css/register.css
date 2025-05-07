@@ -1,0 +1,548 @@
+/* Variables de color */
+:root {
+    --primary-color: #0A5C36;
+    --primary-hover: #0d7444;
+    --error-color: #dc3545;
+    --success-color: #28a745;
+    --info-color: #007bff;
+    --background-color: #f8f9fa;
+    --text-color: #333;
+    --border-color: #ddd;
+}
+
+/* Estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Contenedor del formulario */
+.form-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem;
+    margin: 20px auto;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Título */
+h2 {
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+/* Mensajes de error y éxito */
+.error-message, .success-message, .info-message {
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    animation: slideIn 0.3s ease-out;
+}
+
+.error-message {
+    background-color: rgba(220, 53, 69, 0.1);
+    border: 1px solid var(--error-color);
+    color: var(--error-color);
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.error-message i {
+    margin-top: 0.2rem;
+}
+
+.success-message {
+    background-color: rgba(40, 167, 69, 0.1);
+    border: 1px solid var(--success-color);
+    color: var(--success-color);
+}
+
+.info-message {
+    background-color: rgba(0, 123, 255, 0.1);
+    border: 1px solid var(--info-color);
+    color: var(--info-color);
+}
+
+.error-message i, .success-message i, .info-message i {
+    font-size: 1.1rem;
+    margin-right: 0.5rem;
+}
+
+/* Grupos de formulario */
+.form-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+label i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+/* Campos de entrada */
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(10, 92, 54, 0.1);
+    outline: none;
+}
+
+input[type="text"]:hover,
+input[type="password"]:hover,
+select:hover {
+    border-color: var(--primary-hover);
+}
+
+/* Selects de fecha */
+.date-selects {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.date-selects select {
+    flex: 1;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Contenedor de contraseña */
+.password-container {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.password-container input[type="password"],
+.password-container input[type="text"] {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    padding-right: 40px;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 12px; /* Ajustado para alinear con el campo de entrada */
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.toggle-password:hover {
+    color: var(--primary-color);
+}
+
+.toggle-password:focus {
+    outline: none;
+}
+
+.toggle-password i {
+    font-size: 1.1rem;
+}
+
+/* Indicadores de seguridad de contraseña */
+.password-strength {
+    margin-top: 1rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.02);
+}
+
+.strength-text {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.requirements {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.requirements ul {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 0.5rem 0;
+}
+
+.requirement {
+    display: flex;
+    align-items: center;
+    margin: 0.25rem 0;
+}
+
+.requirement:before {
+    content: '○';
+    margin-right: 0.5rem;
+    color: #dc3545;
+}
+
+.requirement.valid:before {
+    content: '●';
+    color: #28a745;
+}
+
+/* Botón de envío */
+input[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+input[type="submit"]:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 15px rgba(10, 92, 54, 0.2);
+}
+
+/* Enlace de regreso */
+.back-link {
+    display: block;
+    text-align: center;
+    margin-top: 1.5rem;
+    color: var(--text-color);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: var(--primary-color);
+}
+
+/* Placeholders */
+::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+/* Estilos para el formulario activo */
+.form-group:focus-within label {
+    color: var(--primary-color);
+}
+
+/* Contenedor de input con mensaje de ayuda */
+.input-container {
+    position: relative;
+}
+
+.input-help {
+    display: block;
+    color: #666;
+    font-size: 0.8rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.input-help.valid {
+    color: var(--success-color);
+}
+
+.input-help.invalid {
+    color: var(--error-color);
+}
+
+.validation-message {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+    min-height: 1.2em;
+}
+
+.form-group .validation-message {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+    width: 100%;
+}
+
+/* Estado de validación */
+input:invalid:not(:placeholder-shown) {
+    border-color: var(--error-color);
+}
+
+input:valid:not(:placeholder-shown) {
+    border-color: var(--success-color);
+}
+
+/* Sección de preguntas de seguridad */
+.security-questions-section {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+}
+
+.security-questions-section h3 {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.security-questions-section .help-text {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.security-questions-section select {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    background-color: white;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.security-questions-section select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(10, 92, 54, 0.1);
+    outline: none;
+}
+
+.security-questions-section input[type="text"] {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.security-questions-section input[type="text"]:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(10, 92, 54, 0.1);
+    outline: none;
+}
+
+/* Media queries para responsividad */
+@media (max-width: 576px) {
+    .form-container {
+        padding: 1.5rem;
+        margin: 10px;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .date-selects {
+        flex-direction: row; /* Mantener dirección horizontal */
+        gap: 5px; /* Reducir el espacio entre selects en móviles */
+    }
+
+    .date-selects select {
+        padding: 0.75rem 0.25rem; /* Reducir el padding horizontal */
+        font-size: 0.9rem; /* Reducir ligeramente el tamaño de fuente */
+    }
+
+    input[type="text"],
+    input[type="password"],
+    select {
+        font-size: 16px; /* Previene zoom en iOS */
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    label {
+        font-size: 0.9rem;
+    }
+
+    .error-message,
+    .success-message {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+    }
+
+    .input-help {
+        font-size: 0.75rem;
+    }
+    
+    .validation-message {
+        font-size: 0.8rem;
+    }
+}
+
+/* Ajustes para pantallas medianas */
+@media (min-width: 577px) and (max-width: 768px) {
+    .form-container {
+        max-width: 450px;
+    }
+}
+
+/* Ajustes para pantallas grandes */
+@media (min-width: 769px) {
+    .form-container:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Estilos para el modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+}
+
+.modal-content h3 {
+    margin-bottom: 20px;
+    color: #4CAF50;
+}
+
+.modal-content p {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.modal-content .btn-login {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.modal-content .btn-login:hover {
+    background-color: #45a049;
+}
+
+.modal i {
+    margin-right: 10px;
+    color: #4CAF50;
+}
+
+#edad-calculada {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0;
+    transition: color 0.3s ease;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
